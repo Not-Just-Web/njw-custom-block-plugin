@@ -16,7 +16,7 @@
 define( 'NJW_BLOCKS_PLUGIN_FILE',  __FILE__);
 define( 'NJW_BLOCKS_DIR',  plugin_dir_path(NJW_BLOCKS_PLUGIN_FILE) );
 
-require_once NJW_BLOCKS_DIR . 'product-category-banner.php';
+require_once NJW_BLOCKS_DIR . 'includes/product-category-banner.php';
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
