@@ -69,9 +69,10 @@ const Edit = ( { name, attributes, setAttributes } : {name: string, attributes:B
 					<img src="https://dummyimage.com/16:9x1080/" className="wp-block-cover__image-background wp-post-image" alt="" style={{ objectFit: 'cover' }} loading="lazy" />
 					<div className="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
 
-					<div className="wp-block-group is-layout-constrained wp-container-core-group-is-layout-8 wp-block-group-is-layout-constrained">
-						<h1 className="wp-block-query-title has-x-large-font-size">Category: <span> Title</span></h1>
-					</div>
+						<div className="wp-block-group is-layout-constrained wp-container-core-group-is-layout-8 wp-block-group-is-layout-constrained">
+							<h1 className="wp-block-query-title has-x-large-font-size">Category: <span> Title</span></h1>
+							<div className="wp-block-term-description__placeholder"><span>Term Description</span></div>
+						</div>
 					</div>
 				</div>
 			</div>
