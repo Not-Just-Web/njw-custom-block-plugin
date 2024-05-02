@@ -1,1 +1,1 @@
-import  './aremedia-image-text/index';
+import  './njw-product-cat-cover-image/index';
