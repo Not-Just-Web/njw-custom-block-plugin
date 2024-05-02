@@ -24,10 +24,13 @@ import ServerSideRender from '@wordpress/server-side-render';
  */
 export default function save( { attributes } : {attributes: LooseObject} ) {
 	const blockProps = useBlockProps.save();
-	const { title, productId, itemPerPage } = attributes;
 	return (
 	<div { ...blockProps }>
-		<ServerSideRender/>
+
+		<ServerSideRender
+			block="njw/product-cat-cover-image" // Replace with your block name
+			attributes={ attributes }
+		/>
 	</div>
 	)
 }

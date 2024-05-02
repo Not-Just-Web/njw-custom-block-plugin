@@ -32,8 +32,28 @@ function create_block_NJW_BLOCKS_block_init() {
       $all_blocks = glob($block_folder . '/*', GLOB_ONLYDIR);
 
       foreach( $all_blocks as $block) :
-        register_block_type( $block );
+				$block_name = basename($block);
+				if ($block_name === 'product-cat-cover-image') {
+						register_block_type( $block, array(
+								'style' => 'wp-block-cover',
+						) );
+				} else {
+						register_block_type( $block );
+				}
       endforeach;
     endif;
 }
 add_action( 'init', 'create_block_NJW_BLOCKS_block_init' );
+
+
+// function njw_enqueue_cover_block_style() {
+// 	if ( ! wp_style_is( 'wp-block-cover', 'enqueued' ) ) {
+// 			wp_enqueue_style(
+// 					'wp-block-cover', // Handle
+// 					includes_url( 'blocks/cover/style.min.css' ), // File URL
+// 					array(), // Dependencies
+// 					wp_get_theme()->get( 'Version' ) // Version number
+// 			);
+// 	}
+// }
+// add_action( 'wp_enqueue_scripts', 'njw_enqueue_cover_block_style' );

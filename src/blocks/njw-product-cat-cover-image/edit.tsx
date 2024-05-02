@@ -17,10 +17,6 @@ import { TextControl, IconButton, PanelBody, } from '@wordpress/components';
  */
 
 import { useBlockProps, BlockControls, InspectorControls } from '@wordpress/block-editor';
-import { getBlockType } from '@wordpress/blocks';
-
-import InputNumber from '../../app/component/InputNumber';
-import ImageUpload from '../../app/component/ImageUpload';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -38,9 +34,8 @@ import ServerSideRender from '@wordpress/server-side-render';
  */
 const Edit = ( { name, attributes, setAttributes } : {name: string, attributes:BlockAttribute,  setAttributes:Function}) => {
 	const blockProps = useBlockProps();
-	const {mode} = attributes;
 
-	const {title: blockTitle } = getBlockType( name );
+	const {mode} = attributes;
 
 	const toggleMode = () => {
 		setAttributes({
@@ -51,7 +46,6 @@ const Edit = ( { name, attributes, setAttributes } : {name: string, attributes:B
 	const toggleText = mode === BlockMode.PREVIEW? 'Switch to Edit' : 'Switch to Preview';
 	const toggleIcon = mode === BlockMode.PREVIEW? 'edit' : 'welcome-view-site';
 
-
 	return (
 		<div { ...blockProps }>
 			<BlockControls>
@@ -61,23 +55,30 @@ const Edit = ( { name, attributes, setAttributes } : {name: string, attributes:B
 				/>
 			</BlockControls>
 
+			{mode === BlockMode.PREVIEW ? (
+				<>
+				  <p> This is preview mode ...  might come blank .. switch the mode to edit to see sample how it looks ..</p>
+				  <ServerSideRender
+				  	block="njw/product-cat-cover-image" // Replace with your block name
+					attributes={ attributes }
+				  />
+				</>
+			) : (
+				<div>
+					<div className="wp-block-cover is-light" style={{ minHeight: '450px', aspectRatio: 'unset' }}>
+						<span aria-hidden="true" className="wp-block-cover__background has-lite-background-color has-background-dim"></span>
 
-			<div>
-				<div className="wp-block-cover is-light" style={{ minHeight: '450px', aspectRatio: 'unset' }}>
-					<span aria-hidden="true" className="wp-block-cover__background has-lite-background-color has-background-dim"></span>
+						<img src="https://dummyimage.com/16:9x1080/" className="wp-block-cover__image-background wp-post-image" alt="" style={{ objectFit: 'cover' }} loading="lazy" />
+						<div className="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
 
-					<img src="https://dummyimage.com/16:9x1080/" className="wp-block-cover__image-background wp-post-image" alt="" style={{ objectFit: 'cover' }} loading="lazy" />
-					<div className="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
-
-						<div className="wp-block-group is-layout-constrained wp-container-core-group-is-layout-8 wp-block-group-is-layout-constrained">
-							<h1 className="wp-block-query-title has-x-large-font-size">Category: <span> Title</span></h1>
-							<div className="wp-block-term-description__placeholder"><span>Term Description</span></div>
+							<div className="wp-block-group is-layout-constrained wp-container-core-group-is-layout-8 wp-block-group-is-layout-constrained">
+								<h1 className="wp-block-query-title has-x-large-font-size">Category: <span> Title</span></h1>
+								<div className="wp-block-term-description__placeholder"><span>Term Description</span></div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-
+			)}
 		</div>
 	);
 }
