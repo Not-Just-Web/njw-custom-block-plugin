@@ -47,6 +47,7 @@ To customize the default product category cover banner block, follow these steps
 
 To run the script, you can use the following commands:
 
+- `num install` : This command install all dependency like `wp-scripts` which is used to build the script. 
 - `npm run build`: This command will build the project using the `wp-scripts build` script.
 - `npm run format`: This command will format the project using the `wp-scripts format` script.
 - `npm run lint:css`: This command will lint the CSS files using the `wp-scripts lint-style` script.
