@@ -29,8 +29,8 @@ To create a custom block using NJW Blocks, follow these steps:
 1. Install and activate the NJW Blocks plugin.
 2. Go to the WordPress admin dashboard and navigate to the "Blocks" section.
 3. Click on the "Add New" button to create a new block.
-4. Customize the block settings and content using the provided options.
-5. Save the block and publish it on your WordPress site.
+4. Select `NJW - Product Category Banner` block and add on product category template for block theme.
+5. Save the the new template and visit product category archive to see if the block is working as expected.
 
 ### How can I customize the default product category cover banner block?
 
