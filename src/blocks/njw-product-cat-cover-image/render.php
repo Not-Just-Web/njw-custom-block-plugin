@@ -15,7 +15,7 @@ $category_banner_url = wp_get_attachment_url($category_banner_id);
 ob_start(); // Start output buffering
 ?>
 	<!-- wp:cover {"url":"<?php echo esc_url($category_banner_url); ?>", "overlayColor": "lite", "minHeight":450,"isDark":false} -->
-	<div class="wp-block-cover is-light" style="min-height:450px">
+	<div class="wp-block-cover is-light">
 		<span aria-hidden="true" class="wp-block-cover__background has-lite-background-color has-background-dim"></span>
 		<img src="<?php echo esc_url($category_banner_url); ?>" class="wp-block-cover__image-background wp-post-image" alt="" data-object-fit="cover" decoding="async" loading="lazy">
 		<div class="wp-block-cover__inner-container">
